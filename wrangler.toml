@@ -1,0 +1,10 @@
+[site]
+bucket = "./dist"
+site.entry-point = "dist"
+
+[build]
+command = "npm run build"
+cwd = "."
+
+[pages]
+pages_build_output_dir = "dist"

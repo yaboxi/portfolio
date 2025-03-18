@@ -18,7 +18,14 @@ import Footer from '../components/Footer.astro';
     <meta name="description" content="QAエンジニア Yabo/Hayato Yabusakiのポートフォリオサイト。品質とスピードを両立し、価値あるプロダクトを届けます。" />
     <title>{isHomePage ? 'yabo | Home' : `yabo | ${title}`}</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-    <script is:inline src="../scripts/theme.js"></script>
+    <script is:inline>
+      // ローカルストレージからテーマを確認
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
   <body class="font-sans min-h-screen flex flex-col bg-[#EEF2F6] dark:bg-[#070F2B] transition-colors duration-200 antialiased">
     <!-- スキップリンクの追加 -->
