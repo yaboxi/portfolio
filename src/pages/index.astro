@@ -1,11 +1,340 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Hayato Yabusaki" isHomePage={true}>
+	<!-- ヒーローセクション -->
+	<section class="bg-gradient-to-b from-[#F5F7FA] to-white dark:from-[#1A1B2E] dark:to-[#141522]">
+		<div class="max-w-5xl mx-auto py-16 md:py-24 px-4">
+			<div class="grid md:grid-cols-[1fr_2fr] gap-8 items-center">
+				<div class="flex flex-col items-center md:items-start">
+					<div class="relative">
+						<div class="w-48 h-48 rounded-full overflow-hidden border-4 border-[#2D3047]/20 dark:border-[#7C7EAE]/20 p-1 group transition-all duration-300 hover:border-[#7C7EAE] dark:hover:border-[#E4E4F1]">
+							<img
+								src="/images/profile.png"
+								alt="yabo's avatar"
+								class="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
+								width="192"
+								height="192"
+							/>
+						</div>
+					</div>
+					<h2 class="text-3xl font-bold mt-4 text-[#2D3047] dark:text-[#E4E4F1]">yabo</h2>
+					<p class="text-xl text-[#2D3047] dark:text-[#C5C6E5]">Hayato Yabusaki</p>
+					<div class="flex gap-3 mt-4">
+						<a href="https://x.com/yaboxi_" target="_blank" rel="noopener noreferrer" class="p-2 border border-[#2D3047] dark:border-[#7C7EAE] rounded-lg hover:bg-[#2D3047] hover:text-[#E4E4F1] dark:hover:bg-[#7C7EAE] text-[#2D3047] dark:text-[#C5C6E5] transition-colors duration-200">
+							<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+							</svg>
+						</a>
+						<a href="https://www.linkedin.com/in/hayatoyabusaki/" target="_blank" rel="noopener noreferrer" class="p-2 border border-[#2D3047] dark:border-[#7C7EAE] rounded-lg hover:bg-[#2D3047] hover:text-[#E4E4F1] dark:hover:bg-[#7C7EAE] text-[#2D3047] dark:text-[#C5C6E5] transition-colors duration-200">
+							<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+								<rect x="2" y="9" width="4" height="12" />
+								<circle cx="4" cy="4" r="2" />
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div class="text-center md:text-left space-y-6">
+					<div class="space-y-2">
+						<div class="flex items-center justify-center md:justify-start">
+							<h1 class="text-3xl md:text-[2.5rem] font-bold bg-gradient-to-r from-[#2D3047] to-[#7C7EAE] dark:from-[#E4E4F1] dark:to-[#C5C6E5] bg-clip-text text-transparent leading-relaxed">Quality Assurance Engineer</h1>
+							<span class="text-3xl ml-2">🧪</span>
+						</div>
+						<p class="text-xl text-[#2D3047] dark:text-[#C5C6E5] text-lg">速さと確かさを両立し、安心して届けられるプロダクトづくりを ✨</p>
+					</div>
+					<div class="flex flex-wrap gap-3 justify-center md:justify-start">
+						<button class="px-6 py-3 bg-[#2D3047]/60 dark:bg-[#7C7EAE]/60 text-[#E4E4F1] rounded-full cursor-not-allowed transition-colors duration-200">
+							プロフィールを見る 🚧
+						</button>
+						<button class="px-6 py-3 border-2 border-[#2D3047]/60 dark:border-[#7C7EAE]/60 text-[#2D3047]/60 dark:text-[#E4E4F1]/60 rounded-full cursor-not-allowed transition-colors duration-200">
+							プロジェクトを見る 🚧
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="max-w-5xl mx-auto">
+		<!-- スキルセクション -->
+		<section class="py-12 md:py-16">
+			<div class="container mx-auto px-4">
+				<div class="max-w-5xl mx-auto">
+					<div class="text-center mb-12">
+						<h2 class="text-3xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">Skills</h2>
+						<p class="text-[#2D3047] dark:text-[#C5C6E5] text-lg">QAをPlatform/Enabling Teamにするお手伝いをしています 🚀</p>
+					</div>
+
+					<div class="grid md:grid-cols-3 gap-6 md:gap-8">
+						<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 h-full fade-in-card">
+							<div class="flex items-center gap-2 mb-4">
+								<span class="text-[#2D3047] dark:text-[#E4E4F1] p-2">🧪</span>
+								<h3 class="text-xl font-bold text-[#2D3047] dark:text-[#E4E4F1]">QA・テスト支援</h3>
+							</div>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+								<li>組織のQA・テスト戦略策定</li>
+								<li>ATDDに基づくQAプロセス導入</li>
+								<li>アジャイルQA知識のレクチャ</li>
+								<li>Devチームのテストレビュー</li>
+							</ul>
+						</div>
+
+						<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 h-full fade-in-card animation-delay-200">
+							<div class="flex items-center gap-2 mb-4">
+								<span class="text-[#2D3047] dark:text-[#E4E4F1] p-2">🤖</span>
+								<h3 class="text-xl font-bold text-[#2D3047] dark:text-[#E4E4F1]">テスト自動化</h3>
+							</div>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+								<li>ツール選定・導入</li>
+								<li>E2E/APIテスト実装・運用</li>
+								<li>CI/CDパイプライン構築</li>
+								<li>非機能テスト自動化</li>
+							</ul>
+						</div>
+
+						<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 h-full fade-in-card animation-delay-400">
+							<div class="flex items-center gap-2 mb-4">
+								<span class="text-[#2D3047] dark:text-[#E4E4F1] p-2">🎯</span>
+								<h3 class="text-xl font-bold text-[#2D3047] dark:text-[#E4E4F1]">チームリーディング</h3>
+							</div>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+								<li>チームMVV/OKR設定</li>
+								<li>開発プロジェクトマネジメント</li>
+								<li>チーム内勉強会の主催</li>
+								<li>社外発信・登壇</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ツールセクション -->
+		<section class="py-16 md:py-20">
+			<div class="container mx-auto px-4">
+				<div class="max-w-5xl mx-auto">
+					<div class="text-center mb-12">
+						<h2 class="text-3xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">Tools</h2>
+						<p class="text-[#2D3047] dark:text-[#C5C6E5] text-lg">自動テストコンサルタントの経験を活かし、ツール導入から運用まで丸ごと支援します ⚡</p>
+					</div>
+					<div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+						<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 h-full fade-in-card">
+							<h3 class="text-xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">E2Eテスト</h3>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+								<li>Playwright</li>
+								<li>mabl</li>
+								<li>Autify</li>
+								<li>MagicPod</li>
+							</ul>
+						</div>
+						<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 h-full fade-in-card animation-delay-100">
+							<h3 class="text-xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">API/非機能テスト</h3>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+								<li>Postman</li>
+								<li>k6</li>
+								<li>ZAP</li>
+								<li>SonarQube</li>
+							</ul>
+						</div>
+						<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 h-full fade-in-card animation-delay-200">
+							<h3 class="text-xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">テスト管理</h3>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+								<li>Qase</li>
+								<li>QualityForward</li>
+								<li>Jira</li>
+								<li>Confluence</li>
+							</ul>
+						</div>
+						<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 h-full fade-in-card animation-delay-300">
+							<h3 class="text-xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">開発環境</h3>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+								<li>GitHub Actions</li>
+								<li>Docker</li>
+								<li>Cursor</li>
+								<li>Claude</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Experience -->
+		<section class="py-24">
+			<div class="container mx-auto px-4">
+				<div class="max-w-5xl mx-auto">
+					<div class="text-center mb-12">
+						<h2 class="text-3xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">Experience</h2>
+						<p class="text-[#2D3047] dark:text-[#C5C6E5] text-lg">第三者検証会社から翻訳アプリ開発企業に移り、QAチームのリーダーをしています 👥</p>
+					</div>
+					<div class="relative">
+						<!-- タイムラインの縦線 -->
+						<div class="absolute left-4 md:left-[100px] h-full w-1 bg-[#2D3047]/20 dark:bg-[#7C7EAE]/20"></div>
+						
+						<!-- 2023-現在 -->
+						<div class="relative flex flex-col md:flex-row items-start mb-12">
+							<div class="flex-none pl-8 md:pl-0 md:w-[100px] md:text-right md:pr-8">
+								<span class="text-[#2D3047] dark:text-[#C5C6E5] font-medium">2023.07<br/>- 現在</span>
+							</div>
+							<div class="absolute left-4 md:left-[100px] transform -translate-x-1/2 w-4 h-4 bg-[#2D3047] dark:bg-[#7C7EAE] rounded-full border-4 border-white dark:border-[#1A1B2E]"></div>
+							<div class="w-full pl-8 md:pl-12">
+								<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 fade-in-card">
+									<div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+										<h3 class="text-xl font-bold text-[#2D3047] dark:text-[#E4E4F1]">シニアQAエンジニア・QAチームリーダー</h3>
+										<p class="text-[#2D3047] dark:text-[#C5C6E5] font-medium mt-2 md:mt-0">株式会社みらい翻訳</p>
+									</div>
+									<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+										<li>• 新チームリーダとしてQAチームのMVVの見直し、活動方針の策定</li>
+										<li>• QAチームメンバのプロジェクト支援アサイン、稼働マネジメント</li>
+										<li>• ATDD, 探索的テストなどのアジャイルQAのプラクティスの展開</li>	
+										<li>• Qase, Postmanなどのツールの社内導入と、運用ルール策定</li>		
+										<li>• OWASP ASVSなどに基づくセキュリティ運用のガイドライン策定、SOC2取得対応</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<!-- 2021-2023 -->
+						<div class="relative flex flex-col md:flex-row items-start">
+							<div class="flex-none pl-8 md:pl-0 md:w-[100px] md:text-right md:pr-8">
+								<span class="text-[#2D3047] dark:text-[#C5C6E5] font-medium">2018.04<br/>- 2023.06</span>
+							</div>
+							<div class="absolute left-4 md:left-[100px] transform -translate-x-1/2 w-4 h-4 bg-[#2D3047] dark:bg-[#7C7EAE] rounded-full border-4 border-white dark:border-[#1A1B2E]"></div>
+							<div class="w-full pl-8 md:pl-12">
+								<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 fade-in-card animation-delay-200">
+									<div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+										<h3 class="text-xl font-bold text-[#2D3047] dark:text-[#E4E4F1]">QAエンジニア・自動テストコンサルタント</h3>
+										<p class="text-[#2D3047] dark:text-[#C5C6E5] font-medium mt-2 md:mt-0">株式会社ベリサーブ</p>
+									</div>
+									<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-2 text-sm">
+										<li>• mabl, PlaywrightなどのE2E自動テストツールの導入支援</li>
+										<li>• 社内エンジニアへの自動テストやプログラミングに関する技術研修</li>
+										<li>• 探索的テストを題材としたプロダクトのPO</li>
+										<li>• LLMや開発フレームワーク(GPT-4, LangChain)などの技術調査</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex justify-center mt-8">
+						<button class="inline-flex items-center gap-2 px-6 py-3 bg-[#2D3047]/60 dark:bg-[#7C7EAE]/60 text-white/60 rounded-lg cursor-not-allowed transition-colors duration-300">
+							具体的な案件はこちら <span>🚧</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Core Valuesセクション -->
+	</div>
+
+	<section class="py-20 md:py-24 bg-gradient-to-b from-[#F5F7FA] to-white dark:from-[#1A1B2E] dark:to-[#141522]">
+		<div class="container mx-auto px-4">
+			<div class="max-w-5xl mx-auto">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">Core Values</h2>
+					<p class="text-[#2D3047] dark:text-[#C5C6E5] text-lg">大切にしている価値観です 🌟</p>
+				</div>
+				<div class="p-6 bg-white/80 dark:bg-[#2D3047]/80 backdrop-blur-sm rounded-lg border border-[#2D3047]/20 dark:border-[#7C7EAE]/20 hover:shadow-[0_0_15px_rgba(124,126,174,0.3)] dark:hover:shadow-[0_0_15px_rgba(196,198,229,0.3)] transition-all duration-300 h-full">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-4 text-base">
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">ムダを省き、シンプルかつスピーディに</span>
+								</li>
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">ナレッジをドキュメント化し属人化を防止</span>
+								</li>
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">開発チームと共に学び成長する姿勢</span>
+								</li>
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">フラットでオープンなコミュニケーション</span>
+								</li>
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">場所や時間に縛られない柔軟な働き方</span>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<ul class="text-[#2D3047] dark:text-[#C5C6E5] space-y-4 text-base">
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">プロダクト構想段階からQAが参画</span>
+								</li>
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">常に最新技術をキャッチアップ</span>
+								</li>
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">生産性向上ツールへの積極投資</span>
+								</li>
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">コストパフォーマンスを重視した自動化</span>
+								</li>
+								<li class="flex items-start gap-2 group hover:translate-x-2 transition-transform duration-300">
+									<span class="text-xl group-hover:scale-110 transition-transform duration-300">⭐️</span>
+									<span class="font-medium">職域を越えて良いプロダクトにコミット</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="max-w-5xl mx-auto">
+		<!-- コンタクトセクション -->
+		<section class="py-20">
+			<div class="container mx-auto px-4">
+				<div class="max-w-5xl mx-auto text-center">
+					<h2 class="text-3xl font-bold mb-4 text-[#2D3047] dark:text-[#E4E4F1]">Let's Connect 🤝</h2>
+					<p class="text-[#2D3047] dark:text-[#C5C6E5] text-lg mb-8">
+						お問い合わせはLinkedInから受け付けています。一言「ポートフォリオ見たよ！」といただけると喜びます🙌
+					</p>
+					<div class="text-center mt-12">
+						<a href="https://www.linkedin.com/in/hayatoyabusaki/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-[#2D3047] dark:bg-[#7C7EAE] text-[#E4E4F1] rounded-lg hover:bg-[#2D3047]/80 dark:hover:bg-[#7C7EAE]/80 transition-colors duration-200">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+								<rect x="2" y="9" width="4" height="12" />
+								<circle cx="4" cy="4" r="2" />
+							</svg>
+							LinkedIn
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</BaseLayout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// Fade-in animation on scroll
+		const fadeCards = document.querySelectorAll('.fade-in-card');
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+				}
+			});
+		}, { threshold: 0.1 });
+
+	fadeCards.forEach(card => {
+		observer.observe(card);
+	});
+	});
+</script>

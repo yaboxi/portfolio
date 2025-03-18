@@ -1,0 +1,125 @@
+<header id="header" class="sticky top-0 z-10 backdrop-blur-md bg-[#EEF2F6]/80 dark:bg-[#070F2B]/80 border-b border-[#1B1A55]/20 dark:border-[#535C91]/20">
+  <nav class="container mx-auto px-4 py-3" aria-label="メインナビゲーション">
+    <div class="flex justify-between items-center">
+      <a href="/" class="text-xl font-bold text-[#1B1A55] dark:text-white" aria-label="ホームページへ">
+        yabo <span class="mx-1 font-normal">｜</span> Hayato Yabusaki
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex items-center gap-6" aria-label="サイト内リンク">
+          <ul class="flex space-x-6 text-sm uppercase tracking-widest">
+            <li><a href="/" class="font-medium text-[#1B1A55] dark:text-white hover:text-[#535C91] dark:hover:text-[#9290C3] transition-colors duration-200">HOME</a></li>
+            <li><span class="font-medium text-[#1B1A55]/60 dark:text-white/60 cursor-not-allowed">ABOUT 🚧</span></li>
+            <li><span class="font-medium text-[#1B1A55]/60 dark:text-white/60 cursor-not-allowed">PROJECTS 🚧</span></li>
+            <li><span class="font-medium text-[#1B1A55]/60 dark:text-white/60 cursor-not-allowed">ARTICLES 🚧</span></li>
+            <li><span class="font-medium text-[#1B1A55]/60 dark:text-white/60 cursor-not-allowed">BLOG 🚧</span></li>
+          </ul>
+        </nav>
+        <button 
+          id="theme-toggle" 
+          class="p-2 text-[#1B1A55] dark:text-white rounded-lg hover:bg-[#1B1A55]/10 dark:hover:bg-[#535C91]/10 transition-colors duration-200"
+          aria-label="テーマ切り替え"
+          title="ライト/ダークモード切り替え"
+        >
+          <svg id="theme-toggle-dark-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const header = document.getElementById('header');
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 100; // スクロールしきい値
+
+    if (!themeToggleDarkIcon || !themeToggleLightIcon || !themeToggleBtn || !header) {
+      console.error('Theme toggle or header elements not found');
+      return;
+    }
+
+    // システムのカラーモード変更を監視
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!('color-theme' in localStorage)) {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+          themeToggleDarkIcon.classList.add('hidden');
+          themeToggleLightIcon.classList.remove('hidden');
+        } else {
+          document.documentElement.classList.remove('dark');
+          themeToggleDarkIcon.classList.remove('hidden');
+          themeToggleLightIcon.classList.add('hidden');
+        }
+      }
+    });
+
+    // 初期状態の設定
+    if (localStorage.getItem('color-theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+      themeToggleDarkIcon.classList.remove('hidden');
+      themeToggleLightIcon.classList.add('hidden');
+    } else {
+      document.documentElement.classList.add('dark');
+      themeToggleDarkIcon.classList.add('hidden');
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      // アイコンの切り替え
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      // テーマの切り替え
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+
+      // ページトップ付近ではヘッダーを表示
+      if (currentScrollY < scrollThreshold) {
+        header.style.transform = 'translateY(0)';
+        return;
+      }
+
+      // スクロール方向に応じてヘッダーの表示/非表示を制御
+      if (currentScrollY > lastScrollY) {
+        // 下スクロール時は非表示（マウスホバー時は除く）
+        if (!header.matches(':hover')) {
+          header.style.transform = 'translateY(-100%)';
+        }
+      } else {
+        // 上スクロール時は表示
+        header.style.transform = 'translateY(0)';
+      }
+
+      lastScrollY = currentScrollY;
+    });
+
+    // ヘッダーへのマウスホバー時の処理
+    header.addEventListener('mouseenter', () => {
+      header.style.transform = 'translateY(0)';
+    });
+
+    // ヘッダーからマウスが離れた時の処理（スクロール位置に応じて）
+    header.addEventListener('mouseleave', () => {
+      if (window.scrollY > scrollThreshold && lastScrollY > 0) {
+        header.style.transform = 'translateY(-100%)';
+      }
+    });
+  });
+</script> 

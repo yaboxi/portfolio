@@ -1,0 +1,131 @@
+---
+interface Props {
+  title: string;
+  isHomePage?: boolean;
+}
+
+const { title, isHomePage = false } = Astro.props;
+import '../styles/base.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="QAエンジニア Yabo/Hayato Yabusakiのポートフォリオサイト。品質とスピードを両立し、価値あるプロダクトを届けます。" />
+    <title>{isHomePage ? 'yabo | Home' : `yabo | ${title}`}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+    <script is:inline src="../scripts/theme.js"></script>
+  </head>
+  <body class="font-sans min-h-screen flex flex-col bg-[#EEF2F6] dark:bg-[#070F2B] transition-colors duration-200 antialiased">
+    <!-- スキップリンクの追加 -->
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+    
+    <Header />
+
+    <main id="main-content" class="flex-1" tabindex="-1">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      // Reduced Motion対応
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      if (prefersReducedMotion.matches) {
+        document.documentElement.style.setProperty('--transition-duration', '0s');
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: 'Roboto', 'Zen Kaku Gothic New', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0.025em;
+  }
+
+  h1 span {
+    font-family: 'Caveat', cursive;
+  }
+
+  :root {
+    --transition-duration: 0.3s;
+    --color-primary: #1B1A55;
+    --color-secondary: #535C91;
+    --color-accent: #9290C3;
+    --color-background: #EEF2F6;
+    --color-text: #1B1A55;
+  }
+
+  .dark {
+    --color-primary: #535C91;
+    --color-secondary: #9290C3;
+    --color-accent: #FFFFFF;
+    --color-background: #070F2B;
+    --color-text: #FFFFFF;
+  }
+
+  .transition-transform {
+    transition-duration: var(--transition-duration);
+  }
+
+  /* フォーカスインジケータの改善 */
+  :focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* マウスユーザーの場合のみアウトラインを非表示 */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* キーボードフォーカスの場合のスタイル */
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* スキップリンク */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.6s ease-in-out;
+    transform-origin: center;
+  }
+</style> 

@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --transition-duration: 0.3s;
+    --color-primary: #1B1A55;
+    --color-secondary: #535C91;
+    --color-accent: #9290C3;
+    --color-background: #EEF2F6;
+    --color-text: #1B1A55;
+  }
+
+  .dark {
+    --color-primary: #535C91;
+    --color-secondary: #9290C3;
+    --color-accent: #FFFFFF;
+    --color-background: #070F2B;
+    --color-text: #FFFFFF;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply absolute -top-10 left-0 bg-[var(--color-primary)] text-white p-2 z-50 focus:top-0;
+  }
+}
+
+/* アクセシビリティ関連のスタイル */
+:focus {
+  @apply outline-none ring-2 ring-[var(--color-accent)] ring-offset-2;
+}
+
+:focus:not(:focus-visible) {
+  @apply ring-0 ring-offset-0;
+}
+
+:focus-visible {
+  @apply ring-2 ring-[var(--color-accent)] ring-offset-2;
+}
+
+/* カスタムアニメーション */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.animate-shake {
+  animation: shake 0.6s ease-in-out;
+  transform-origin: center;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-card {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in-card.is-visible {
+    animation-play-state: running;
+  }
+}
+
+body {
+  font-family: 'Roboto', 'Zen Kaku Gothic New', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.025em;
+}
+
+h1 span {
+  font-family: 'Caveat', cursive;
+}
+
+.transition-transform {
+  transition-duration: var(--transition-duration);
+} 
